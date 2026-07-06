@@ -81,8 +81,7 @@ crud/
 4. **Acesso ao Sistema:**
    - Abra o navegador e acesse: `http://localhost/crud/login.php`
    - **Credenciais de Administrador Padrão:**
-     - E-mail: `matriz@inexxus.digital` | Senha: `inexxus2013`
-     - E-mail Alternativo: `marcuszuim@inexxus.digital` | Senha: `123456`
+     - E-mail: `marcuszuim@inexxus.digital` | Senha: `123456`
 
 ---
 
