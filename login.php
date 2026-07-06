@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    if ($email === 'matriz@inexxus.digital' && $senha === 'inexxus2013') {
+    if ($email === 'marcuszuim@inexxus.digital' && $senha === '123456') {
         header('location:index.php');
         exit;
     } else {
