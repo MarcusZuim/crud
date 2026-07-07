@@ -68,7 +68,6 @@ crud/
 * Crie um banco de dados chamado `crud` [source: 1].
 * Execute os comandos SQL abaixo para criar as tabelas de **clientes** e de **usuários administradores**:
 ```sql
--- Tabela de Clientes
 CREATE TABLE IF NOT EXISTS clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -76,14 +75,12 @@ CREATE TABLE IF NOT EXISTS clientes (
     telefone VARCHAR(20) NOT NULL
 );
 
--- Tabela de Usuários Administradores
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(100) NOT NULL
 );
 
--- Inserindo o usuário administrador para testes de login
 INSERT INTO users (email, senha) VALUES ('seuemail@gmail.com', 'suasenha');
 
 ```
