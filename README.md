@@ -57,31 +57,47 @@ crud/
 
 ---
 
-## 💾 Instalação e Configuração (Ambiente Local)
+### 💾 Instalação e Configuração (Ambiente Local)
 
 1. **Clonar ou Mover o Projeto:**
-   - Mova a pasta `crud` para dentro do diretório de execução do seu servidor local (Ex: `C:\laragon\www\crud\` ou `C:\xampp\htdocs\crud\`).
+* Mova a pasta `crud` para dentro do diretório de execução do seu servidor local (Ex: `C:\laragon\www\crud\` ou `C:\xampp\htdocs\crud\`).
+
 
 2. **Configuração do Banco de Dados:**
-   - Certifique-se de que o MySQL está ativo.
-   - Crie um banco de dados chamado `crud`.
-   - Execute o comando SQL abaixo para criar a tabela de clientes necessária:
-     ```sql
-     CREATE TABLE IF NOT EXISTS clientes (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         nome VARCHAR(100) NOT NULL,
-         email VARCHAR(100) NOT NULL,
-         telefone VARCHAR(20) NOT NULL
-     );
-     ```
+* Certifique-se de que o MySQL está ativo.
+* Crie um banco de dados chamado `crud` [source: 1].
+* Execute os comandos SQL abaixo para criar as tabelas de **clientes** e de **usuários administradores**:
+```sql
+-- Tabela de Clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL
+);
+
+-- Tabela de Usuários Administradores
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL
+);
+
+-- Inserindo o usuário administrador para testes de login
+INSERT INTO users (email, senha) VALUES ('seuemail@gmail.com', 'suasenha');
+
+```
 
 3. **Configuração de Conexão:**
-   - Caso seu ambiente local utilize usuário ou senha diferentes do padrão do Laragon/XAMPP (`root` e senha vazia), ajuste as variáveis correspondentes localizadas no arquivo `config/config.php`.
+* Caso seu ambiente local utilize usuário ou senha diferentes do padrão do Laragon/XAMPP (`root` e senha vazia), ajuste as variáveis correspondentes localizadas no arquivo `config/config.php` [source: 1].
+
 
 4. **Acesso ao Sistema:**
-   - Abra o navegador e acesse: `http://localhost/crud/login.php`
-   - **Credenciais de Administrador Padrão:**
-     - E-mail: `marcuszuim@inexxus.digital` | Senha: `123456`
+* Abra o navegador e acesse: `http://localhost/crud/login.php`
+* **Autenticação Dinâmica (Via Banco de Dados):** O sistema não valida mais credenciais estáticas no código. O acesso deve ser feito utilizando o e-mail cadastrado na tabela `users`:
+* **E-mail:** `seuemail'@gmail.com`
+* **Senha:** 'suasenha'
+
 
 ---
 
