@@ -1,12 +1,17 @@
 <?php 
 session_start();
+require_once 'config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    if ($email === 'marcuszuim@inexxus.digital' && $senha === '123456') {
-        header('location:index.php');
+    $sql = "SELECT * FROM users WHERE email = '$email' AND senha = '$senha'";
+    $dados = $pdo->query($sql);
+    $usuariovalido = $dados->fetch();
+
+    if ($usuariovalido) {
+        header('Location:index.php');
         exit;
     } else {
         $_SESSION['erro'] = "Email ou senha incorreta";
